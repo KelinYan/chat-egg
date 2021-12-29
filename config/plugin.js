@@ -17,4 +17,8 @@ module.exports = {
   session: {
     enable: true,
   },
+  cors: {
+    enable: true,
+    package: 'egg-cors',
+  },
 };

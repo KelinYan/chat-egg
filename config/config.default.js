@@ -43,6 +43,17 @@ module.exports = appInfo => {
         database: 'websql',
       },
     },
+    security: {
+      csrf: {
+        enable: false,
+        ignoreJSON: true,
+      },
+      domainWhiteList: ['*'], // 白名单
+    },
+    cors: {
+      origin: '*',
+      allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+    },
   };
   return {
     ...config,
