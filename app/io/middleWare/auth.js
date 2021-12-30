@@ -20,7 +20,7 @@ module.exports = app => {
     await app.mysql.update('user', { id: socket.id }, { where: { _id: query.id } });
     const users = await app.mysql.select('user', { columns: ['_id', 'id', 'name'] });
     const namespace = app.io.of('/');
-    namespace.emit('userChange', JSON.stringify(users));
+    namespace.emit('userChange', users);
     socket.emit('connected', socket.id);
     await next();
     await app.mysql.update('user', { id: '' }, { where: { _id: query.id } });
